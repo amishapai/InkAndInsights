@@ -52,8 +52,6 @@ class MainPage(tk.Tk):
         image_label2 = ttk.Label(self, image=image2)
         image_label2.configure(style='Main.TLabel')  # Set background color using style
         image_label2.pack(side="left", padx=10, pady=10, fill="both", expand=True)
-
-        # Set up image references to avoid garbage collection
         self.image_references = [image1, image2]
 
         # Create a style to set the background color
@@ -263,18 +261,18 @@ class WindowTwo(tk.Toplevel):
         data1 = pd.read_csv(filePath)
 
         x_column = "STATNAME"
-        y_column1 = "SCOMPTOT"
+        y_column1 = "SELETOT"
         y_column = "SCHTOT"
 
         x_data = data[x_column]
         y_data = data1[y_column]
         y_data1 = data1[y_column1]
 
-        plt.scatter(x_data, y_data, label = "Number of schools", color = "black")
-        plt.scatter(x_data, y_data1, label = "Number of schools with computers", color = "red")
+        plt.bar(x_data, y_data, label = "Number of schools", color = "black")
+        plt.bar(x_data, y_data1, label = "Number of schools: electricity", color = "purple")
 
         plt.xlabel("States")
-        plt.ylabel("Number of schools and those with computers")
+        plt.ylabel("Number of Schools and those with electricity")
         plt.xticks(range(len(x_data)), x_data, rotation=90)
         plt.grid(axis='y')
 
