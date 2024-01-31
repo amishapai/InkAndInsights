@@ -17,7 +17,7 @@ class MainScreen(Screen):
     def __init__(self, **kwargs):
         super(MainScreen, self).__init__(**kwargs)
         layout = BoxLayout(orientation='vertical', spacing=10, padding=10)
-        
+        Window.fullscreen = 'auto'
         button1 = Button(text='Page 1: 6 Images', on_press=self.go_to_page1)
         button2 = Button(text='Page 2: Buttons', on_press=self.go_to_page2)
         button3 = Button(text='Page 3: 2 Images', on_press=self.go_to_page3)
@@ -50,7 +50,7 @@ class Page1(Screen):
         for image_path in ["C:\\Users\\amish\\Python\\InkAndInsights\\Images\\1-MaleVsFemaleLine.png",
                            "C:\\Users\\amish\\Python\\InkAndInsights\\Images\\1-Heat.png",
                            "C:\\Users\\amish\\Python\\InkAndInsights\\Images\\1-GenderFemale.png",
-                           "C:\\Users\\amish\\Python\\InkAndInsights\\Images\\1-MiddayBar.png"]:
+                           "C:\\Users\\amish\\Python\\InkAndInsights\\Images\\1-Schoolnum.png"]:
             image = Image(source=image_path, size_hint=(None, None), size=(480, 480))
             grid_layout.add_widget(image)
 
@@ -173,7 +173,7 @@ class Page2_3(Screen):
         y2_data = data[z]
 
         # Create a 3D bar plot
-        fig = plt.figure(figsize=(15, 15))
+        fig = plt.figure(figsize=(20, 15))
         ax = fig.add_subplot(111, projection='3d')
 
         # Plot the 3D bars
@@ -207,7 +207,7 @@ class Page2_3(Screen):
         import matplotlib.pyplot as plt
         from mpl_toolkits.mplot3d import Axes3D
 
-        file_path = "C:\\Users\\amish\\Python\\InkAndInsights\\csv2.csv"  
+        file_path = "C:\\Users\\amish\\Python\\InkAndInsights\\csv3.csv"  
         data = pd.read_csv(file_path)
 
         y1_column = 'female_literacy_rate'  
